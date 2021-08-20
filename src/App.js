@@ -7,6 +7,7 @@ import Nav from './Nav'
 import { PrivateRoute } from './Component/Private';
 import ComeHere from './Component/ComeHere';
 import comment from './Component/comment';
+import Task from './Component/Task';
 
 
 
@@ -17,12 +18,13 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path='/home' component={Home} />
+          <Route exact path='/' component={Home} />
           <Route exact path='/login' component={SignUp} />
           <PrivateRoute exact path= '/come' component={ComeHere} />
           <PrivateRoute exact path='/user' component={User} />
           <PrivateRoute exact path='/post' component={Post} />
           <PrivateRoute exact path='/comment' component={comment} />
+          <PrivateRoute exact path = '/task' component={Task} />
         </Switch>
 
       </Router>
