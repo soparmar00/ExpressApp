@@ -61,7 +61,7 @@ const SignUp = () => {
         console.log(sigup.name, sigup.city, sigup.email, sigup.password)
         dispatch(signUpUser(sigup))
         handleClose()
-        history.push('/come')
+        history.push('/')
     }
 
     const handleLoginSubmit =(e) => {
