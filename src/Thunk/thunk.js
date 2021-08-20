@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { addPost, addUser, deleteUser, editUser, login, showPost, showUsers, signup } from '../Action/actions';
+import { addPost, addTask, addUser, deleteTask, deleteUser, editUser, login, showPost, showTask, showUsers, signup } from '../Action/actions';
 
 
 const request = axios.create({
@@ -101,4 +101,50 @@ export const getPost= (state) => async (dispatch, getState) => {
     catch (err) {
         console.log(err);
     } 
+}
+
+export const addComments = (state) => async (dispatch) => {
+    console.log(state)
+    try{
+        const response = await request.post('/addcomment', state);
+        dispatch(addPost({comment: response.data}))
+    }
+    catch (err) {
+        console.log(err);
+    } 
+}
+
+export const addtasks = (state) => async (dispatch) => {
+    console.log(state)
+    try{
+        const response = await request.post('/addtask', state);
+        console.log(response.data)
+        dispatch(addTask({task: response.data}))
+    }
+    catch (err) {
+        console.log(err);
+    } 
+}
+
+export const getTask= (state) => async (dispatch, getState) => {
+    console.log(state)
+     try{
+    const response = await request.get('/task');
+        console.log(response.data)
+    dispatch(showTask({ fetchTask: response.data }))
+    }           
+    catch (err) {
+        console.log(err);
+    } 
+}
+
+export const deleteTasks = (id) => async (dispatch) => {
+    try{
+        const response = await request.delete(`/deletetask/${id}`)
+        dispatch(deleteTask(id))
+        dispatch(showTask)
+    }
+    catch(err) {
+        console.log(err)
+    }
 }
