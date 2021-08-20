@@ -6,6 +6,10 @@ export const EDIT_USER = 'EDIT_USER';
 export const DELETE_USER = 'DELETE_USER';
 export const ADD_POST = 'ADD_POST';
 export const SHOW_POST = 'SHOW_POST';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const ADD_TASK = 'ADD_TASK';
+export const SHOW_TASK = 'SHOW_TASK';
+export const DELETE_TASK = 'DELETE_TASK'
 
 export const signup = (name, email, city, password) => ({
     type: SIGN_UP,
@@ -52,3 +56,23 @@ export const showPost = (payload) => ({
     type: SHOW_POST, 
     payload 
 });
+
+export const addComment = (payload) => ({
+    type: ADD_POST,
+    payload
+})
+
+export const addTask = (payload) => ({
+    type: ADD_TASK,
+    payload
+})
+
+export const showTask = (payload) => ({
+    type: SHOW_TASK,
+    payload
+})
+
+export const deleteTask = (id) => ({
+    type: DELETE_TASK,
+    payload: id,
+})
