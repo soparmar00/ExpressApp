@@ -1,9 +1,10 @@
-import { ADD_POST, SHOW_POST } from "../Action/actions";
+import { ADD_COMMENT, ADD_POST, SHOW_POST } from "../Action/actions";
 
 const initialState = {
     post: {},
     fetchPost: [],
-    _id: localStorage.getItem("id")
+    _id: localStorage.getItem("id"),
+    comment: {},
 }
 
 export default function Post(state = initialState, action) {
@@ -20,6 +21,11 @@ export default function Post(state = initialState, action) {
         fetchPost: action.payload.fetchPost,
       }
 
+      case ADD_COMMENT:
+        return{
+          ...state,
+          comment: action.payload.comment,
+        }
         default:
             return state
     }

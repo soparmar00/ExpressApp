@@ -61,7 +61,7 @@ const SignUp = () => {
         console.log(sigup.name, sigup.city, sigup.email, sigup.password)
         dispatch(signUpUser(sigup))
         handleClose()
-        history.push('/')
+        
     }
 
     const handleLoginSubmit =(e) => {
@@ -70,6 +70,7 @@ const SignUp = () => {
         console.log(login.email, login.password)
         dispatch(loginUser(login))
        handlelogClose()
+       history.push('/')
     }
 
     return (

@@ -8,6 +8,7 @@ const initialState = {
 
 
 
+
 export default function users(state = initialState, action) {
     
     switch (action.type) {
@@ -21,9 +22,9 @@ export default function users(state = initialState, action) {
             return{
                 ...state,
                 users: action.payload.users
-                
+   
             }
-
+        
 
         default:    
             return state

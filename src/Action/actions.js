@@ -1,5 +1,6 @@
 export const SIGN_UP = 'SIGN_UP';
 export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT'
 export const ADD_USER = 'ADD_USER';
 export const SHOW_USER = 'SHOW_USER';
 export const EDIT_USER = 'EDIT_USER';
@@ -10,6 +11,7 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 export const ADD_TASK = 'ADD_TASK';
 export const SHOW_TASK = 'SHOW_TASK';
 export const DELETE_TASK = 'DELETE_TASK'
+export const DATE = 'DATE';
 
 export const signup = (name, email, city, password) => ({
     type: SIGN_UP,
@@ -20,10 +22,16 @@ export const signup = (name, email, city, password) => ({
 });
 
 export const login = (payload) => {
-    console.log(payload.token)
     return{
     type: LOG_IN,
     payload
+    }
+}
+
+export const logout=(payload)=>{
+    return{
+        type:LOG_OUT,
+        payload
     }
 }
 
@@ -75,4 +83,9 @@ export const showTask = (payload) => ({
 export const deleteTask = (id) => ({
     type: DELETE_TASK,
     payload: id,
+})
+
+export const date = (payload) => ({
+    type: Date,
+    payload,
 })

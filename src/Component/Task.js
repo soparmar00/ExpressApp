@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector  } from 'react-redux';
 import { Modal, Form, Button, Table  } from 'react-bootstrap';
-import { addtasks, deleteTasks, getTask } from '../Thunk/thunk';
+import { addtasks, deleteTasks, getTask, sendDate } from '../Thunk/thunk';
 
 const Task = () => {
 
     const [show, setShow] = useState(false);
     const [add, setAdd] = useState({user: '', title: '' , startDate: '', endDate:''})
+    const [date, setDate] = useState({staD:'', endD:''})
+
     const dispatch = useDispatch()
     const task = useSelector((state) => state.Task.fetchTask)
     console.log(task)
@@ -14,6 +16,7 @@ const Task = () => {
     useEffect(() => {
         dispatch(getTask());
     }, [dispatch])
+
 
      const handleClose = () => {
         setShow(false)
@@ -38,19 +41,51 @@ const Task = () => {
         const { name, value } = e.target;
         setAdd({ ...add, [name]: value });
     }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(addtasks(add))
         handleClose()
     }
 
+    const handleFSubmit = (e) => {
+        e.preventDefault()
+        dispatch(sendDate(date))
+        handleClose()
+    }
+
      const taskField = task.length> 0 ? Object.keys(task[0]) : [];
+
+    const handleFChange = (e) => {
+            const {name, value} = e.target;
+            setDate({...date, [name]: value})
+        } 
+        
+
+    
 
 
     return (
         <div>
             <td><Button variant="success"onClick={() => handleTask()} >Report Task</Button> </td>
+            <form onSubmit={handleFSubmit} >
+            <div class="row">
+            <div class="col">
+            <Form.Label>Start Date</Form.Label>
+            <input type="date" name="staD" class="form-control" placeholder="Enter start date" onChange={handleFChange}/>
+            </div>
+            <div class="col">
+            <Form.Label>End Date</Form.Label>
+            <input type="date" name="endD" class="form-control" placeholder="Enter end date" onChange={handleFChange}/>
+            </div>
+            </div>
+            <br/>
+            <center>
+            <Button variant="primary" type="submit">Filter </Button> 
+            </center>
+            </form>
+            <br/>
+            <br/>
+
             <Table striped bordered hover>
       <thead>
       <tr>
