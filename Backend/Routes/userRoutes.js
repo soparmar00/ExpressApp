@@ -1,6 +1,7 @@
 const express = require('express')
 const UserModel = require('../Model/User')
 const routes = express.Router();
+const auth = require('../Middelware/check-auth')
 
 
 routes.post('/adduser', (req, res, next) => {

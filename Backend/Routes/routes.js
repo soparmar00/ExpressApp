@@ -62,7 +62,7 @@ routes.post('/signup', (req, res, next) => {
       }
       const token = jwt.sign(
         { email: fetchUser.email, userId: fetchUser._id },
-        "secret_this_should_be_longer",
+        "sourabhs_secret",
         { expiresIn: "1m" }
       );
       console.log(token)
