@@ -23,13 +23,15 @@ const getTask =async (req,res)=>{
 }
 
 const deleteTask =async (req,res)=>{
-    const id=req.params.id
      try {
+         const id=req.params.id
         const task= await TaskModel.findByIdAndDelete(id)
         res.status(200).json(task)
     } catch (error) {
         res.status(404).json({message:error.message})
         }
 }
+
+
 
 module.exports={addTask, getTask, deleteTask};

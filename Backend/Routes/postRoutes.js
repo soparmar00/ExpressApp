@@ -12,7 +12,7 @@ routes.post('/addpost', (req, res) => {
      post.save().then(result => {
                 if (!result) {
                     return res.status(500).json({
-                        message: "Error Creating USer"
+                        message: "Error Creating r"
                     })
                 }
                 res.status(201).json({

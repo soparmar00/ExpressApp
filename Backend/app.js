@@ -9,6 +9,7 @@ const routes = require('./Routes/routes')
 const userRoutes = require('./Routes/userRoutes')
 const postRoutes = require('./Routes/postRoutes')
 const commentRoutes = require('./Routes/commentRoutes')
+const taskRoutes = require('./Routes/taskRoutes')
 
 const PORT = process.env.PORT || 9060;
 
@@ -35,5 +36,6 @@ app.use(routes);
 app.use(userRoutes);
 app.use(postRoutes);
 app.use(commentRoutes);
+app.use(taskRoutes);
 
 app.listen(PORT, console.log(`Server is startin at ${PORT}`));
