@@ -11,7 +11,7 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 export const ADD_TASK = 'ADD_TASK';
 export const SHOW_TASK = 'SHOW_TASK';
 export const DELETE_TASK = 'DELETE_TASK'
-export const DATE = 'DATE';
+export const FILTER_BY_DATE = 'FILTER_BY_DATE';
 
 export const signup = (name, email, city, password) => ({
     type: SIGN_UP,
@@ -85,7 +85,7 @@ export const deleteTask = (id) => ({
     payload: id,
 })
 
-export const date = (payload) => ({
-    type: Date,
+export const filter_by_date = (payload) => ({
+    type: FILTER_BY_DATE,
     payload,
 })

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
 export const PrivateRoute = (props) => {
-  const  { token }  = useSelector((state)=>state.users)
+  const  token   = useSelector((state)=>state.users.token)
   console.log("auth", token);
 
   return token ? (

@@ -6,12 +6,12 @@ import { addtasks, deleteTasks, getTask, sendDate } from '../Thunk/thunk';
 const Task = () => {
 
     const [show, setShow] = useState(false);
-    const [add, setAdd] = useState({user: '', title: '' , startDate: '', endDate:''})
+    const [add, setAdd] = useState({user: '', title: '' , date: ''})
     const [date, setDate] = useState({staD:'', endD:''})
 
     const dispatch = useDispatch()
     const task = useSelector((state) => state.Task.fetchTask)
-    console.log(task)
+    // console.log(task)
 
     useEffect(() => {
         dispatch(getTask());
@@ -92,8 +92,7 @@ const Task = () => {
                     <td>Task Id</td>
                     <td>User</td>
                     <td>Title</td>
-                    <td>Start Date</td>
-                    <td>End Date</td>
+                    <td>Date</td>
                     <td>__v</td>
                     
        </tr>
@@ -133,16 +132,9 @@ const Task = () => {
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Start Date</Form.Label>
-                            <Form.Control type="date" name="startDate"  placeholder="start date" onChange={handleChange} />
+                            <Form.Label>Date</Form.Label>
+                            <Form.Control type="date" name="date"  placeholder="date" onChange={handleChange} />
                         </Form.Group>
-
-                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>End Date</Form.Label>
-                            <Form.Control type="date" name="endDate"  placeholder="end date" onChange={handleChange} />
-                        </Form.Group>
-                        
-
                         <center>
                             <Button variant="primary" type="submit">
                                 Add 

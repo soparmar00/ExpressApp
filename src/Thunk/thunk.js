@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { addPost, addTask, addUser, date, deleteTask, deleteUser, editUser, login, showPost, showTask, showUsers, signup } from '../Action/actions';
+import { addPost, addTask, addUser, deleteTask, deleteUser, editUser, filter_by_date, login, showPost, showTask, showUsers, signup } from '../Action/actions';
 
 
 const request = axios.create({
@@ -151,11 +151,14 @@ export const deleteTasks = (id) => async (dispatch) => {
 
 export const sendDate = (state) => async (dispatch) => {
     console.log(state)
-    try{
-        const response = await request.post('/date')
-        dispatch(date({seDate: response.data}))
+    try{    
+        const {staD, endD} = state;
+        const response = await request.get(`/filterdata?staD=${staD}&endD=${endD}`)
+        console.log(response.data)
+        dispatch(filter_by_date({task: response.data}))
     }
     catch(err){
         console.log(err)
     }
 }
+

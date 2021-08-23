@@ -1,9 +1,9 @@
-import { ADD_TASK, DATE, DELETE_TASK, SHOW_TASK } from "../Action/actions";
+import { ADD_TASK, DELETE_TASK, FILTER_BY_DATE, SHOW_TASK } from "../Action/actions";
 
 const initialState = {
     task: {},
     fetchTask: [],
-    seDate: {},
+    
 }
 
 export default function Task(state = initialState, action) {
@@ -23,10 +23,10 @@ export default function Task(state = initialState, action) {
                 ...state,
                 fetchTask:  state.users.filter((tasks) => tasks.id !== action.payload)
         }
-        case DATE:
+        case FILTER_BY_DATE:
             return{
                 ...state,
-                seDate: action.payload.seDate
+                fetchTask: action.payload.fetchTask
             }
 
         default:
